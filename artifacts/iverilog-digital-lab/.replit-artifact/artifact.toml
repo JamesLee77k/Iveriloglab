@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "IVerilog Digital Logic Lab"
+description = "An interactive college learning platform for digital logic and Verilog: explore gates, edit HDL examples, run clearly labeled demo simulations, study experiments, and prepare for vivas."
+version = "1.0.0"
+id = "artifacts/iverilog-digital-lab"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 20583
+
+[services.development]
+run = "pnpm --filter @workspace/iverilog-digital-lab run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/iverilog-digital-lab", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/iverilog-digital-lab/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "20583"
+BASE_PATH = "/"
