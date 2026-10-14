@@ -1,0 +1,16 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "Xo8IcXGuaRB0qL_8QBP1i"
+uri = "file://artifacts/iverilog-digital-lab/dist/public/single-file/index.html"
+type = "html"
+title = "IVerilog Digital Logic Lab — index.html"
+description = "Self-contained downloadable index.html with the app’s CSS and JavaScript embedded. Upload it to GitHub Pages as index.html."
+logical_id = "cb9695b4-29a5-485f-b876-848ed7778799"
+content_hash = "sha256:c7aded89d5088668efc302f372e59d7161c1357bcd119fe95e95b9a9c958d0c8"
+size = 421126
+mtime_ms = 1791952728259
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:9a9ff6ab-dd1f-4ff1-aac5-41b6f6bdf17c/cb9695b4-29a5-485f-b876-848ed7778799/0100b7cc-71ff-4bb8-9cf4-7b3b5885ef46"
+storage_version_token = "1791952740370923"
+content_type = "text/html"
