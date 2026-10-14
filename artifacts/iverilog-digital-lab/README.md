@@ -17,6 +17,23 @@ The Vite config requires `PORT` and `BASE_PATH`. Replit workflows normally provi
 PORT=5000 BASE_PATH=/ pnpm --filter @workspace/iverilog-digital-lab build
 ```
 
+## Download and publish on GitHub Pages
+
+Open **About this lab** in the running app and choose **Download GitHub package**. The ZIP contains a ready-to-publish static site: `index.html`, the bundled CSS and JavaScript in `assets/`, the favicon, and this README. It does not contain the editable TypeScript source.
+
+1. Create an empty GitHub repository and extract the ZIP contents into the repository root. Keep `index.html` and the `assets/` folder together.
+2. Commit and push those files to the `main` branch.
+3. In the repository, open **Settings → Pages**. Choose **Deploy from a branch**, select `main` and `/(root)`, then save.
+4. Open the Pages URL shown in repository settings. The site uses hash-based routes in this package so refreshing a section works on GitHub Pages.
+
+To make a fresh static build from this pnpm workspace instead of using the download ZIP:
+
+```sh
+PORT=5000 BASE_PATH=./ VITE_GITHUB_PAGES=true pnpm --filter @workspace/iverilog-digital-lab build
+```
+
+The output is `artifacts/iverilog-digital-lab/dist/public/`. Deploy the contents of that directory as the GitHub Pages root. The normal Replit build keeps browser-history routes; the GitHub Pages build uses hash routes because Pages does not provide SPA rewrites by default.
+
 The app uses React Router browser-history routes and expects the web server to fall back to `index.html` for paths such as `/logic-gates` and `/experiments`. Vite development and preview provide SPA history fallback. Deployments should enable the equivalent static-host rewrite.
 
 ## What runs in the browser

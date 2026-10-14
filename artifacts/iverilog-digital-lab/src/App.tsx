@@ -1,5 +1,5 @@
 import { useEffect, useState, type FormEvent, type ReactNode } from 'react';
-import { BrowserRouter, Link, Route, Routes, useLocation } from 'react-router-dom';
+import { BrowserRouter, HashRouter, Link, Route, Routes, useLocation } from 'react-router-dom';
 import {
   Activity, ArrowDownToLine, ArrowRight, BookOpen, Check, ChevronDown, CircleHelp,
   Clipboard, Code2, Cpu, FileText, FlaskConical, Gauge, GitBranch, Info, Layers3,
@@ -721,7 +721,9 @@ function About() {
   const [saved, setSaved] = useState(false);
   const update = (key: keyof StudentDetails, value: string) => { setSaved(false); setDetails((current) => ({ ...current, [key]: value })); };
   const save = (event: FormEvent<HTMLFormElement>) => { event.preventDefault(); writeStore(STORE.details, details); setSaved(true); };
-  return <div><Heading eyebrow="REFERENCE / PROJECT NOTES" title="About this lab" description="A practical digital-logic classroom for college learners—designed to make the difference between a browser demo and a real toolchain unmistakable." />
+  const showDownload = import.meta.env.VITE_GITHUB_PAGES !== 'true';
+  const downloadHref = `${import.meta.env.BASE_URL}iverilog-digital-lab-github-pages.zip`;
+  return <div><Heading eyebrow="REFERENCE / PROJECT NOTES" title="About this lab" description="A practical digital-logic classroom for college learners—designed to make the difference between a browser demo and a real toolchain unmistakable." action={showDownload ? <a className="btn btn-primary no-print" href={downloadHref} download="iverilog-digital-lab-github-pages.zip" data-testid="link-download-github-package"><ArrowDownToLine size={14} /> Download GitHub package</a> : undefined} />
     <div className="grid gap-4 xl:grid-cols-[1fr_.9fr]">
       <div className="space-y-4">
         <Panel className="p-5 sm:p-6"><div className="eyebrow mb-2">PURPOSE</div><h2 className="text-xl font-extrabold leading-snug text-[#e8f0f3]">Switch inputs. Read the HDL. Explain the output.</h2><p className="mt-3 text-[11px] leading-7 text-[#a6b8c2]">This learning product links the most useful early digital-logic habits: reason from a truth table, relate the table to Verilog source, drive test vectors, and interpret output values. It favors practical, inspectable results over pretending a compiler is running.</p>
@@ -749,6 +751,7 @@ function NotFound() {
 }
 
 function App() {
+  if (import.meta.env.VITE_GITHUB_PAGES === 'true') return <HashRouter><AppShell /></HashRouter>;
   return <BrowserRouter><AppShell /></BrowserRouter>;
 }
 
