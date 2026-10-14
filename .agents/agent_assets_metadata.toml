@@ -14,3 +14,17 @@ mtime_ms = 1791952728259
 storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:9a9ff6ab-dd1f-4ff1-aac5-41b6f6bdf17c/cb9695b4-29a5-485f-b876-848ed7778799/47dd55e1-a832-49d6-94f5-349cbdf63766"
 storage_version_token = "1791954932194821"
 content_type = "text/html"
+
+[[outputs]]
+id = "eSwWn9bFPsCWutDhXmYOo"
+uri = "file://artifacts/iverilog-digital-lab/public/iverilog-digital-lab-github-pages.zip"
+type = "unspecified"
+title = "IVerilog Lab — GitHub Pages ZIP"
+description = "Download this ZIP on your phone, extract it, and upload its files—including index.html and assets/—to the root of your GitHub Pages repository."
+logical_id = "4ee252b0-b594-4267-9f3c-b20a9e92e817"
+content_hash = "sha256:6920de7a084810b9a6bd7252717ba1ac3a78e4c2a2d8a617af55c5bf45cbf6df"
+size = 119507
+mtime_ms = 1791946580877
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:9a9ff6ab-dd1f-4ff1-aac5-41b6f6bdf17c/4ee252b0-b594-4267-9f3c-b20a9e92e817/ee19ab05-2d24-4baf-b778-d153ab869962"
+storage_version_token = "1791955063111887"
+content_type = "application/octet-stream"
